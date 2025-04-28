@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini To-Do List</title>
+</head>
+<body style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
+    <h1>🌟 My Tiny To-Do List 🌟</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="New task..." required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul style="list-style: none; padding: 0;">
+        {% for task in tasks %}
+        <li style="margin: 10px;">
+            {{ task }} 
+            <a href="/delete/{{ loop.index0 }}" style="color: red; text-decoration: none;">❌</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
